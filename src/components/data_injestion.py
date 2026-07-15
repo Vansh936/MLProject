@@ -4,7 +4,7 @@ import sys
 from src.exception import CustomException
 from src.logger import logging
 from src.components.data_transformation import DataTransformation
-from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
 
 
 import pandas as pd
@@ -54,6 +54,11 @@ if __name__=="__main__":
     train_data,test_data=obj.initaite_data_injestion()
 
     Data_Transformation=DataTransformation()
-    Data_Transformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_=Data_Transformation.initiate_data_transformation(train_data,test_data)
+
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.Initiate_model_trainer(train_arr,test_arr))
+
+    
 
             
